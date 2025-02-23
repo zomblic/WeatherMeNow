@@ -19,7 +19,7 @@ class HistoryService {
   private async read() {
 
     // ES5 Syntax with and error first callback function
-    fs.readFile('../../db/db.json', 'utf8', (err, data) => {
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) {
         console.log(err);
         return err.message;
@@ -61,7 +61,7 @@ class HistoryService {
 
   // TODO: Define a write method that writes the updated cities array to the searchHistory.json file
   private async write(cities: City[]) {
-    fs.writeFile('../../db/db.json', JSON.stringify(cities), (err) => {
+    fs.writeFile('./db/db.json', JSON.stringify(cities), (err) => {
       if (err) {
         console.log(err);
         return err.message;
