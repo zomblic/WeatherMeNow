@@ -1,7 +1,5 @@
 import { Router } from 'express';
 const router = Router();
-import fs from 'fs';
-import { v4 as uuidv4 } from 'uuid';
 
 
 import HistoryService from '../../service/historyService.js';
@@ -33,42 +31,29 @@ router.post('/', async (req, res) => {
       }
     });
     // TODO: save city to search history
-    router.post('/api/weather', (req:any, res:any) => {
-      const cityName = req.body.city; // Get the city name from the request body
-  
-      // Check if city name is provided
-      if (!cityName) {
-          return res.status(400).json({ error: 'City name is required' });
+    const saveCityToSearchHistory = async (cityName: string) => {
+      try {
+        await HistoryService.addCity(cityName);
+      } catch (error) {
+        console.error('Failed to save city to search history:', error);
       }
-        // Read existing search history
-      fs.readFile('searchHistory.json', 'utf8', (err, data) => {
-          if (err) {
-              return res.status(500).json({ error: 'Failed to read search history' });
-          }
-  
-          // Parse the existing data or initialize an empty array
-          let searchHistory = JSON.parse(data || '[]');
-  
-          // Create a new city object with a unique ID
-          const newCity = {
-              id: uuidv4(), // Generate a unique ID
-              name: cityName // Store the city name
-          };
-  
-          // Add the new city to the search history
-          searchHistory.push(newCity);
+    };
   
           // Write the updated search history back to the file
-          fs.writeFile('searchHistory.json', JSON.stringify(searchHistory), (err) => {
-              if (err) {
-                  return res.status(500).json({ error: 'Failed to save search history' });
-              }
-  
-              // Respond with a success message and the new city object
-              res.json({ message: 'City saved successfully', city: newCity });
+          router.post('/', async (req, res) => {
+            try {
+              const cityName = req.body.cityName;
+              console.log("trying to find weather for city: ", cityName);
+              const weatherData = await WeatherService.getWeatherForCity(cityName);
+              
+              // Save city to search history
+              await saveCityToSearchHistory(cityName);
+              
+              return res.json(weatherData);
+            } catch (error) {
+              return res.status(500).json({ error: 'Failed to retrieve weather data' });
+            }
           });
-      });
-  });
     
 
 // TODO: GET search history  --> endpoint: /api/weather/history w/ GET method

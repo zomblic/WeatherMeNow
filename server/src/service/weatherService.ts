@@ -82,22 +82,27 @@ class WeatherService {
 
   // TODO: Create buildGeocodeQuery method
   private buildGeocodeQuery(): string {
-    console.log(`${this.baseURL}geo/1.0/direct?q=${this.cityName}&limit=1&appid=${this.apiKey}`)
+   // console.log(`${this.baseURL}geo/1.0/direct?q=${this.cityName}&limit=1&appid=${this.apiKey}`)
   return `${this.baseURL}geo/1.0/direct?q=${this.cityName}&limit=1&appid=${this.apiKey}`;
 }
 
   // TODO: Create buildWeatherQuery method
   private buildWeatherQuery(coordinates: any) {
     const { lat, lon } = coordinates;
-    console.log(`${this.baseURL}data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=imperial`);
+   // console.log(`${this.baseURL}data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=imperial`);
   return `${this.baseURL}data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=imperial`;
 }
   // TODO: Create fetchAndDestructureLocationData method
   private async fetchAndDestructureLocationData(): Promise < Coordinates > {
+    try {
   const geoQuery = this.buildGeocodeQuery();
   const locationData = await this.fetchLocationData(geoQuery);
   const destructureLocationData = this.destructureLocationData(locationData);
   return destructureLocationData;
+} catch (error: any) {
+  console.error('Error fetching and destructuring location data:', error);
+  throw error; // Rethrow the error for further handling if needed
+}
 }
 
   // TODO: Create fetchWeatherData method
@@ -111,6 +116,7 @@ const data = await response.json();
 return data;
     } catch (error: any) {
   console.log(error);
+  throw error;
 }
   }
 
