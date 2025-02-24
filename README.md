@@ -1,168 +1,93 @@
-# 09 Servers and APIs: Weather Dashboard
+# <span style="color:rgb(255, 0, 76);">WEATHER ME NOW</span>
+![License: MIT](./utils/MITBADGE.svg)
+##  <span style="color:rgb(0, 217, 255);">Table of Contents</span>
+- [Description](#description)
+- [License](#license)
+- [Install](#install)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Tests](#tests)
+- [Questions](#questions)
+- [Additional Info](#additional-info)
+- [Issues and Bugs](#issues-and-bugs)
+  
 
-## Your Task
+  ## <span style="color:rgb(158, 66, 160);">Description</span>
 
-External APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in their context, frequently consuming this data via a server.
+  [![Watch the video]](https://raw.githubusercontent.com/zomblic/makingacar/main/video/Example.mov)
 
-Your challenge is to build a weather dashboard application that calls the OpenWeather API and renders data in the browser.
+  
+  Are you curious about your weather? Planning an amazing LARPing event, but need to know last minute forecast? Then this is the website for you! Five day forecast that is able to mostly accurately predict your weather!
 
-The application’s front end has already been created. It's your job to build the back end, connect the two, and then deploy the entire application to Render.
+Just type in the city, cross your fingers and see what weather is summoned!
 
-* Use the [5-day weather forecast API](https://openweathermap.org/forecast5) to retrieve weather data for cities.
 
-* The base URL should look like the following:
+  ## <span style="color:rgb(255, 0, 153);">License</span>
+    This project is licensed under the MIT license.
 
-  ```url
-  https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-  ```
+    [MIT](https://opensource.org/licenses/MIT) <-- the link
 
-* After registering for a new API key, you may need to wait up to 2 hours for that API key to activate.
+  Click on the link to learn what the MIT License entails!
 
-* For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys). [completed]
+  ## <span style="color:rgb(255, 0, 255);">Install</span>
+  Required tools: VS Code, Git Bash, (I'm assuming you already have github), Node (the most recent version).
 
-## User Story
+  Required Additional Tools: Npm, a Computer (which I'm assuming you already have), Render link.
 
-```md
-AS A traveler
+  Required Dependencies: Vite, TypeScript, Knowledge of servers, apis and the web, patience beyond compare. Dayjs
 
-I WANT to see the weather outlook for multiple cities
+  Optional Requirement: Knowledge of how not to let servers and apis defeat you information.
 
-SO THAT I can plan a trip accordingly
-```
+  After setting up VScode and Node, navitage to your terminal and type in the code 'npm i'.
+ 
+ Or... just click on this link: https://.
 
-## Acceptance Criteria
 
-```md
-GIVEN a weather dashboard with form inputs
 
-WHEN I search for a city
+  ## <span style="color:rgb(0, 147, 206);">Usage</span>
 
-THEN I am presented with current and future conditions for that city, and that city is added to the search history
+-----> Clicked Link
+Work smartered, not harder option!
+Where the empty text with the faint 'San Deigo', type in your city and have your five day forecast appear! Easy. Simple as that!
 
-WHEN I view current weather conditions for that city
 
-THEN I am presented with the city name, the date, an icon representation of weather conditions, a description of the weather for the icon's alt tag, the temperature, the humidity, and the wind speed
 
-WHEN I view future weather conditions for that city
+-----> Had to do it the hard way? Really?
+In your terminal, the farthest out folder, meaning the folder that contains all the code, open your terminal and type 'npm i'. Wait a few mintues as all the dependencies install, including vite. Still in the terminal, type 'npm run start:dev' it will kickstart and automatically load. Type in the city name and you're done!
 
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 
-WHEN I click on a city in the search history
 
-THEN I am again presented with current and future conditions for that city
-```
 
-## Mock-Up
+  ## <span style="color:rgb(225, 112, 112);">Credits</span>
+    To the bootcamp for providing the readme for the assignment,
 
-The following image shows the web application's appearance and functionality:
+    Classmates for forming study groups to problem solve and figure it out -- thanks to Clinton R, Matt M and Misha D for helping with debugging, discussing and catching the syntax for the weather service!
+    Tutors (Erik for explaining and helping with the history servince code -- ) and TAs for being patient and helping us out,
 
-![The weather app includes a search option, a list of cities, and a 5-day forecast and current weather conditions for Atlanta ](./Assets/09-servers-and-apis-homework-demo.png)
+    Google (and the many, many, many websites that offered advice, tibits and a variety of coding exmaples-- StackOverflow and GeekdforGeeks mainly),
 
-## Getting Started
+    Co-Pilot and Xpert for identifying debugging and slightly tweaking (not sure how to succesfully cite debugged code tho) as well as breaking down code, explaining it and over several examples.
 
-On the back end, the application should include a `searchHistory.json` file that will be used to store and retrieve cities using the `fs` module.
+    And Vs Code!
+    
+      ... we don't talk about gitbash.
+  
+  ## <span style="color:rgb(255, 0, 98);">Tests</span>
 
-The following HTML route should be created:
+    There are currently no tests available for the project.
+    ... there really shoult be.
 
-* `GET *` should return the `index.html` file.
+  ## <span style="color:rgb(2, 162, 255);">Questions</span>
 
-The following API routes should be created:
+    Any questions can be directed to the owner of the repo -- me!
 
-* `GET /api/weather/history` should read the `searchHistory.json` file and return all saved cities as JSON.
+   ## <span style="color:rgb(112, 163, 225);">Issues and Bugs</span>
 
-* `POST /api/weather` should receive a city name to save on the request body, add it to the `searchHistory.json` file, and then return associated weather data to the client. You'll need to find a way to give each city name a unique id when it's saved (look into npm packages that could do this for you).
+    However, if there any bugs, please reach out via Github:
+    Github Username: Zomblic
+ 
 
-Refer to the [Full-Stack Blog on deploying to Render](https://coding-boot-camp.github.io/full-stack/render/render-deployment-guide) and the [Render documentation on setting environment variables](https://docs.render.com/configure-environment-variables).
+  ## <span style="color:rgb(245, 0, 122);">Additional Info</span>
 
----
-
-## 💡 Hints
-
-* Using the 5-day weather forecast API, you'll notice that you'll need to pass in coordinates instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical coordinates given a city name?
-
-* How could we make the OpenWeather API calls server-side, parse the data, and then send the parsed data client-side?
-
-## 🏆 Bonus
-
-This application offers the DELETE functionality on the front end. As a bonus, try to add the DELETE route to the application using the following guideline:
-
-* `DELETE /api/weather/history/:id` should receive a route parameter that contains the id of a city name to delete. To delete a city, you'll need to read all the cities from the `searchHistory.json` file, remove the city with the given `id` property, and then rewrite the cities to the `searchHistory.json` file.
-
----
-
-## Grading Requirements
-
-> **Note** If a Challenge assignment submission is marked as “0”, it's considered incomplete and won't count toward your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code.
->
-> * A repository that includes a unique name but nothing else.
->
-> * A repository that includes only a README file but nothing else.
->
-> * A repository that includes only starter code.
-
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-The Challenge satisfies all of the above acceptance criteria, plus the following:
-
-* Application uses the OpenWeather API to retrieve weather data.
-
-* Application back end must store cities that have a unique id in a JSON file.
-
-* Application must be deployed to Render.
-
-### Deployment: 32%
-
-The Challenge satisfies all of the above acceptance criteria, plus the following:
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-The Challenge satisfies all of the above acceptance criteria, plus the following:
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-The Challenge satisfies all of the above acceptance criteria, plus the following:
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
-
-### Bonus: +10 Points
-
-Fulfilling the following can add up to 10 points to your grade. Note that the highest grade you can achieve is still 100:
-
-* Application allows users to delete cities.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README file describing the project.
-
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+    No code was harmed in the making of this readme.
+    But the human has a migraine!

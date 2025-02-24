@@ -1,5 +1,8 @@
 import { Router } from 'express';
 const router = Router();
+import fs from 'fs';
+import { v4 as uuidv4 } from 'uuid';
+
 
 import HistoryService from '../../service/historyService.js';
 import WeatherService from '../../service/weatherService.js';
@@ -30,9 +33,43 @@ router.post('/', async (req, res) => {
       }
     });
     // TODO: save city to search history
-
-
+    router.post('/api/weather', (req:any, res:any) => {
+      const cityName = req.body.city; // Get the city name from the request body
   
+      // Check if city name is provided
+      if (!cityName) {
+          return res.status(400).json({ error: 'City name is required' });
+      }
+        // Read existing search history
+      fs.readFile('searchHistory.json', 'utf8', (err, data) => {
+          if (err) {
+              return res.status(500).json({ error: 'Failed to read search history' });
+          }
+  
+          // Parse the existing data or initialize an empty array
+          let searchHistory = JSON.parse(data || '[]');
+  
+          // Create a new city object with a unique ID
+          const newCity = {
+              id: uuidv4(), // Generate a unique ID
+              name: cityName // Store the city name
+          };
+  
+          // Add the new city to the search history
+          searchHistory.push(newCity);
+  
+          // Write the updated search history back to the file
+          fs.writeFile('searchHistory.json', JSON.stringify(searchHistory), (err) => {
+              if (err) {
+                  return res.status(500).json({ error: 'Failed to save search history' });
+              }
+  
+              // Respond with a success message and the new city object
+              res.json({ message: 'City saved successfully', city: newCity });
+          });
+      });
+  });
+    
 
 // TODO: GET search history  --> endpoint: /api/weather/history w/ GET method
 router.get('/history', async (_req, res) => {
