@@ -40,7 +40,7 @@ Just type in the city, cross your fingers and see what weather is summoned!
 
   After setting up VScode and Node, navitage to your terminal and type in the code 'npm i'.
  
- Or... just click on this link: https://.
+ Or... just click on this link: [https://weatheringnow.onrender.com](https://weatheringnow.onrender.com).
 
 
 
