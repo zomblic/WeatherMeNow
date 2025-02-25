@@ -8,27 +8,18 @@ class City {
   constructor(
     name: string,
     id: string) {
-     this.name = name;
-     this.id = id;
+    this.name = name;
+    this.id = id;
   }
 }
 // TODO: Complete the HistoryService class  (OUR CRUD Methods)
 class HistoryService {
-   //console.log("HistoryService");
+  //console.log("HistoryService");
   // TODO: Define a read method that reads from the searchHistory.json file
   private async read() {
 
     // ES5 Syntax with and error first callback function
-    fs.readFile('./db/db.json', 'utf8', (err, data) => {
-      if (err) {
-        console.log(err);
-        return err.message;
-      } else {
-        console.log("data: ", data);
-        console.log("type: ", typeof data);
-        return data;
-      }
-    });
+    return await fs.promises.readFile('./db/db.json', 'utf8');
 
     /*
     // ES6 Syntax with a promise based function
@@ -67,9 +58,9 @@ class HistoryService {
         return err.message;
       } else {
         console.log('File written successfully\n');
-      //console.log('The written has the following contents:');
-       // console.log(fs.readFileSync('../../db/db.json', 'utf8'));
-       return 'File written successfully';
+        //console.log('The written has the following contents:');
+        // console.log(fs.readFileSync('../../db/db.json', 'utf8'));
+        return 'File written successfully';
       }
     });
   }
@@ -81,10 +72,10 @@ class HistoryService {
     // Convert JSON string to array of City objects
     if (data === undefined) {
       return [];
-    } 
+    }
     const citiesArray = JSON.parse(data);
     return citiesArray;
-  } 
+  }
 
   // TODO Define an addCity method that adds a city to the searchHistory.json file
   async addCity(city: string) {
@@ -99,7 +90,7 @@ class HistoryService {
   }
 
   // * BONUS TODO: Define a removeCity method that removes a city from the searchHistory.json file
-  async removeCity(id: string) { 
+  async removeCity(id: string) {
     const currentCitiesData = await this.getCities();
     const updatedCitiesData = currentCitiesData.filter(city => city.id !== id);
     await this.write(updatedCitiesData);
