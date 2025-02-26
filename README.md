@@ -14,7 +14,7 @@
 
   ## <span style="color:rgb(158, 66, 160);">Description</span>
 
-  [![Watch the video]](https://raw.githubusercontent.com/zomblic/makingacar/main/video/Example.mov)
+  [!Render](https://weatheringnow.onrender.com)
 
   
   Are you curious about your weather? Planning an amazing LARPing event, but need to know last minute forecast? Then this is the website for you! Five day forecast that is able to mostly accurately predict your weather!
@@ -61,12 +61,12 @@ In your terminal, the farthest out folder, meaning the folder that contains all 
   ## <span style="color:rgb(225, 112, 112);">Credits</span>
     To the bootcamp for providing the readme for the assignment,
 
-    Classmates for forming study groups to problem solve and figure it out -- thanks to Clinton R, Matt M and Misha D for helping with debugging, discussing and catching the syntax for the weather service!
-    Tutors (Erik for explaining and helping with the history servince code -- ) and TAs for being patient and helping us out,
+    Classmates for forming study groups to problem solve and figure it out -- thanks to Zach M, Clinton R, Matt M and Misha D for helping with debugging, discussing and catching the syntax for the weather service!
+    Tutors (Erik for explaining and helping with the history servince code -- Benecio for helping with Render ) and TAs for being patient and helping us out,
 
     Google (and the many, many, many websites that offered advice, tibits and a variety of coding exmaples-- StackOverflow and GeekdforGeeks mainly),
 
-    Co-Pilot and Xpert for identifying debugging and slightly tweaking (not sure how to succesfully cite debugged code tho) as well as breaking down code, explaining it and over several examples.
+    Co-Pilot, ChatGPT and Xpert for identifying debugging and slightly tweaking (not sure how to succesfully cite debugged code tho) as well as breaking down code, explaining it and over several examples.
 
     And Vs Code!
     
@@ -75,7 +75,7 @@ In your terminal, the farthest out folder, meaning the folder that contains all 
   ## <span style="color:rgb(255, 0, 98);">Tests</span>
 
     There are currently no tests available for the project.
-    ... there really shoult be.
+  
 
   ## <span style="color:rgb(2, 162, 255);">Questions</span>
 
