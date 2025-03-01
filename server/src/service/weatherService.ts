@@ -42,8 +42,6 @@ class WeatherService {
   private apiKey: string = process.env.API_KEY || '';
   private cityName?: any;
 
-  //lat: any;
-  //lon: any;
 
   // TODO: Create fetchLocationData method
   private async fetchLocationData(query: any) {
@@ -54,24 +52,6 @@ class WeatherService {
         return { lat, lon };
       });
   }
-
-
-
-
-  // try {
-  // const response = await fetch(query);
-
-  //   if(!response.ok) {
-  //throw new Error('Failed to fetch location data');
-  //}
-  //const data = await response.json();
-  //return data;
-  // }
-  //catch (error: any) {
-  // console.log(error);
-  //}
-  //}
-
   // TODO: Create destructureLocationData method
   private destructureLocationData(locationData: any) {
     // console.log(locationData);
