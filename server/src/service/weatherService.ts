@@ -72,7 +72,7 @@ class WeatherService {
       console.error("❌ Error fetching location data:", error.message);
       throw error;
     }
-  }
+  } 
 
   // TODO: Create buildGeocodeQuery method
   private buildGeocodeQuery(): string {
